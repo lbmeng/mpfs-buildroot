@@ -1,0 +1,22 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+pool:
+  vmImage: 'ubuntu-20.04'
+
+variables:
+  tag: 'latest'
+  image: '$(docker_id)/$(docker_repo):$(tag)'
+
+jobs:
+- job:
+  timeoutInMinutes: 0
+  steps:
+  - script: |
+      docker build -f Dockerfile -t $(image) .
+    displayName: 'Build docker image'
+  - script: |
+      docker login -u $(docker_id) -p $(docker_pwd)
+      docker push $(image)
+    displayName: 'Push docker image'
