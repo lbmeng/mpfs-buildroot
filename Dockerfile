@@ -52,6 +52,11 @@ RUN apt update && apt install -y \
 # Install the python library kconfiglib for HSS build
 RUN pip3 install kconfiglib
 
+# Create our user/group
+RUN echo riscv ALL=NOPASSWD: ALL > /etc/sudoers.d/riscv
+RUN useradd -m -U riscv
+USER riscv:riscv
+
 # Build buildroot SDK
 RUN git clone https://github.com/polarfire-soc/polarfire-soc-buildroot-sdk.git /tmp/mpfs-buildroot && \
 	cd /tmp/mpfs-buildroot && \
