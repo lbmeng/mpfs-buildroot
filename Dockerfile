@@ -59,4 +59,4 @@ RUN git clone https://github.com/polarfire-soc/polarfire-soc-buildroot-sdk.git /
 	git submodule sync && \
 	git submodule update --init --recursive && \
 	unset RISCV && \
-	make -j$(nproc) all DEVKIT=icicle-kit-es
+	make all DEVKIT=icicle-kit-es
