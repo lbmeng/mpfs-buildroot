@@ -57,6 +57,7 @@ RUN pip3 install kconfiglib
 RUN echo riscv ALL=NOPASSWD: ALL > /etc/sudoers.d/riscv
 RUN useradd -m -U riscv
 USER riscv:riscv
+WORKDIR /home/riscv
 
 # Build buildroot SDK
 RUN git clone https://github.com/polarfire-soc/polarfire-soc-buildroot-sdk.git mpfs-buildroot && \
