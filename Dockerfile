@@ -59,8 +59,8 @@ RUN useradd -m -U riscv
 USER riscv:riscv
 
 # Build buildroot SDK
-RUN git clone https://github.com/polarfire-soc/polarfire-soc-buildroot-sdk.git /tmp/mpfs-buildroot && \
-	cd /tmp/mpfs-buildroot && \
+RUN git clone https://github.com/polarfire-soc/polarfire-soc-buildroot-sdk.git mpfs-buildroot && \
+	cd mpfs-buildroot && \
 	git checkout -b v2021.04 v2021.04 && \
 	git submodule sync && \
 	git submodule update --init --recursive && \
