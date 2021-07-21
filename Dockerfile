@@ -48,14 +48,11 @@ RUN apt update && apt install -y \
 	wget \
 	xxd \
 	zlib1g-dev \
-	&& rm -rf /var/lib/apt/lists/*
-
-# Install the python library kconfiglib for HSS build
-RUN pip3 install kconfiglib
+	&& rm -rf /var/lib/apt/lists/* \
+	&& pip3 install kconfiglib
 
 # Create our user/group
-RUN echo riscv ALL=NOPASSWD: ALL > /etc/sudoers.d/riscv
-RUN useradd -m -U riscv
+RUN echo riscv ALL=NOPASSWD: ALL > /etc/sudoers.d/riscv && useradd -m -U riscv
 USER riscv:riscv
 WORKDIR /home/riscv
 
