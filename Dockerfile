@@ -55,8 +55,8 @@ RUN pip3 install kconfiglib
 # Build buildroot SDK
 RUN git clone https://github.com/polarfire-soc/polarfire-soc-buildroot-sdk.git /tmp/mpfs-buildroot && \
 	cd /tmp/mpfs-buildroot && \
-	git checkout -b v2021.04 v2021.04 \
+	git checkout -b v2021.04 v2021.04 && \
 	git submodule sync && \
 	git submodule update --init --recursive && \
-	unset RISCV \
+	unset RISCV && \
 	make -j$(nproc) all DEVKIT=icicle-kit-es
