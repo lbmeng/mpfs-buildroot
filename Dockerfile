@@ -61,6 +61,7 @@ RUN git clone https://github.com/polarfire-soc/polarfire-soc-buildroot-sdk.git m
 	cd mpfs-buildroot && \
 	git checkout -b v2021.04 v2021.04 && \
 	git submodule sync && \
-	git submodule update --init --recursive && \
-	unset RISCV && \
-	make all DEVKIT=icicle-kit-es
+	git submodule update --init --recursive
+#	git submodule update --init --recursive && \
+#	unset RISCV && \
+#	make all DEVKIT=icicle-kit-es
